@@ -1,0 +1,93 @@
+#define _CRT_SECURE_NO_WARNINGS 1
+#include <stdio.h>
+#include <windows.h>
+//int mian()
+//{
+//	int q[102] = { 6,3,1,7,5,8,9,2,4 };
+//	int head = 0;
+//	int tail = sizeof(q) / sizeof(q[0]) ;
+//	while (head < tail)
+//	{
+//		printf("%d ", q[head]);
+//		
+//		tail++;
+//		head++;
+//		q[tail] = q[head];//写入q时缓冲区溢出
+//		head++;
+//	}
+//
+//	return 0;
+//}
+//int mian()
+//{
+//	int q[102] = {0,6,3,1,7,5,8,9,2,4 }, head,tail;
+//	int i;
+//	head= 1;
+//	tail = 10;
+//	while (head < tail)
+//	{
+//		printf("%d ", q[head]);
+//		head++;
+//		q[tail] = q[head];
+//		tail++;
+//		head++;
+//	}
+//	
+//	return 0;
+//}
+//struct queue
+//{
+//	int data[100];
+//	int tail ;
+//	int head ;
+//};
+//int main()
+//{
+//	struct queue q;
+//	int i;
+//	q.tail = 0;
+//	q.head = 0;
+//	while (q.tail < 9)
+//	{
+//		scanf("%d", &q.data[q.tail]);
+//		q.tail++;
+//	}
+//	while (q.head<q.tail)
+//	{
+//		printf("%d ", q.data[q.head]);
+//		q.head++;
+//		q.tail++;
+//		q.data[q.tail] = q.data[q.head];
+//		q.head++;
+//	}
+//	system("pause");
+//	return 0;
+//}//为什么最后排序有个随机地址
+struct queue
+{
+	int data[100];
+	int tail;
+	int head;
+};
+int main()
+{
+	struct queue q;
+	int i;
+	q.tail = 1;
+	q.head = 1;
+	for (i = 1;i <= 9;i++)
+	{
+		scanf("%d", &q.data[q.tail]);
+		q.tail++;
+	}
+	while (q.head < q.tail)
+	{
+		printf("%d ", q.data[q.head]);
+		q.head++;
+		q.data[q.tail] = q.data[q.head];
+		q.head++;
+		q.tail++;
+	}
+	system("pause");
+	return 0;
+}
